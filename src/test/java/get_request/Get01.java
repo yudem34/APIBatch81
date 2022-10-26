@@ -1,3 +1,5 @@
+package get_request;
+
 import io.restassured.response.Response;
 import org.junit.Test;
 
