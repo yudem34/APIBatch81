@@ -2,10 +2,15 @@ package get_request;
 
 import base_url.JsonplaceholderBaseUrl;
 import io.restassured.http.ContentType;
+import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.junit.Test;
+
+import java.util.List;
+
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.*;
+import static org.junit.Assert.assertEquals;
 
 public class Get04 extends JsonplaceholderBaseUrl {
     /*
@@ -30,20 +35,36 @@ public class Get04 extends JsonplaceholderBaseUrl {
     @Test
     public void get01() {
         // 1. Set The Url
-        spec.pathParam("first","todos");
+        spec.pathParam("first", "todos");
         // 2. Set The expected Data
 
         // 3. Send The request And get The Response
-        Response response=given().spec(spec).when().accept(ContentType.JSON).get("/{first}");
-        response.prettyPrint();
+        Response response = given().spec(spec).when().accept(ContentType.JSON).get("/{first}");
+        //response.prettyPrint();
 
         // 4. Do Assertion
+
+        /* 1.Yol */
         response.then().
                 assertThat().
                 statusCode(200).
                 contentType(ContentType.JSON).
-                body("id",hasSize(200),
-                        "title",hasItem("quis eius est sint explicabo")
-                        ,"userId",hasItems(2,7,9));
+                body("todos",hasSize(200),
+                        "title", hasItem("quis eius est sint explicabo"),
+                        "userId", hasItems(2, 7, 9));
+
+        /* 2.Yol */
+        response.
+                then().
+                assertThat().
+                statusCode(200).
+                contentType(ContentType.JSON).
+                body("title", hasItem("quis eius est sint explicabo"),
+                        "userId",hasItems(2,7,9));
+
+        JsonPath json=response.jsonPath();
+        List<Integer> idler=json.getList("findAll{it.id>0}.id");
+        //System.out.println(idler.size());
+        assertEquals(200,idler.size());
     }
 }
