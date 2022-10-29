@@ -45,7 +45,7 @@ public class Get06 extends RestfulBaseUrl {
 
         // 3. Send The request And get The Response
         Response response=given().spec(spec).when().get("/{first}/{second}");
-        //response.prettyPrint();
+        response.prettyPrint();
 
         // 4. Do Assertion
         /* 1. Yol */
