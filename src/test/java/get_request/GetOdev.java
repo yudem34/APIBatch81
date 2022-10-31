@@ -46,11 +46,10 @@ public class GetOdev extends AutomationExerciseUrl {
         response.then().assertThat().statusCode(200).contentType("text/html; charset=utf-8")
                 .statusLine("HTTP/1.1 200 OK");
         // There must be 12 Women, 9 Men, 13 Kids usertype in products
-        /*List<String> women = jsonPath.getList("products.findAll{it.category.usertype.usertype=='Women'}.category.usertype.usertype");*/ //uzun yol
+        List<String> totalList = jsonPath.getList("products.findAll{it.category}category.usertype.usertype");
         List<String> women = jsonPath.getList("products.category.usertype.findAll{it.usertype=='Women'}.usertype");
         List<String> men = jsonPath.getList("products.category.usertype.findAll{it.usertype=='Men'}.usertype");
         List<String> kids = jsonPath.getList("products.category.usertype.findAll{it.usertype=='Kids'}.usertype");
-
         assertEquals(12, women.size());
         assertEquals(9, men.size());
         assertEquals(13, kids.size());
