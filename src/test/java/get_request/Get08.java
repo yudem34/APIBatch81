@@ -5,6 +5,7 @@ import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.junit.Test;
 import org.testng.asserts.SoftAssert;
+import test_data.JsonPlaceHolderTestData;
 
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -57,7 +58,6 @@ public class Get08 extends JsonplaceholderBaseUrl {
         // Send The Request and Get The Response
         Response response = given().spec(spec).when().get("/{first}/{second}");
         // Do Assertion
-        JsonPath jsonPath=response.jsonPath();
         Map<String,Object> actualData=response.as(HashMap.class);
         System.out.println(actualData);
         assertEquals(expectedData,actualData);
@@ -65,6 +65,30 @@ public class Get08 extends JsonplaceholderBaseUrl {
         assertEquals(expectedData.get("id"),actualData.get("id"));
         assertEquals(expectedData.get("title"),actualData.get("title"));
         assertEquals(expectedData.get("completed"),actualData.get("completed"));
+        assertEquals("1.1 vegur", response.header("Via"));
+        assertEquals("cloudflare", response.header("Server"));
+        assertEquals(200, response.statusCode());
+
+    }
+
+    // Dimanik Yontem
+    @Test
+    public void get08b() {
+        // Set the Url
+        spec.pathParams("first", "todos","second",2);
+        // Set The Expected Data
+        JsonPlaceHolderTestData objJsonPlcHldr=new JsonPlaceHolderTestData();
+        Map<String,Object> expectedDataMap=objJsonPlcHldr.expectedDataMap(1,"quis ut nam facilis et officia qui",false);
+        System.out.println(expectedDataMap);
+        // Send The Request and Get The Response
+        Response response = given().spec(spec).when().get("/{first}/{second}");
+        // Do Assertion
+        Map<String,Object> actualData=response.as(HashMap.class);
+        System.out.println(actualData);
+        //assertEquals(expectedData,actualData);
+        assertEquals(expectedDataMap.get("userId"),actualData.get("userId"));
+        assertEquals(expectedDataMap.get("title"),actualData.get("title"));
+        assertEquals(expectedDataMap.get("completed"),actualData.get("completed"));
         assertEquals("1.1 vegur", response.header("Via"));
         assertEquals("cloudflare", response.header("Server"));
         assertEquals(200, response.statusCode());
