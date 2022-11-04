@@ -53,7 +53,7 @@ public class Get11 extends GoRestBaseUrl {
                         "meta.pagination.links.current",equalTo("https://gorest.co.in/public/v1/users?page=1"),
                         "data",hasSize(10),
                         "data.status",hasItem("active"),
-                        "data.name",hasItems("Sujata Chaturvedi","Navin Panicker","Bhadran Mehra LLD"));
+                        "data.name",hasItems("Rudra Tandon","Amodini Rana DC","Lavanya Adiga"));
 
         List<String> female=response.jsonPath().getList("data.findAll{it.gender=='female'}.gender");
         List<String> male=response.jsonPath().getList("data.findAll{it.gender=='male'}.gender");
@@ -79,10 +79,10 @@ public class Get11 extends GoRestBaseUrl {
         List<String> nameList=jsonPath.getList("data.findAll{it.name}.name");
 
         /* 1. Yol */
-        assertTrue(nameList.contains("Sujata Chaturvedi") && nameList.contains("Navin Panicker") && nameList.contains("Bhadran Mehra LLD"));
+        assertTrue(nameList.contains("Rudra Tandon") && nameList.contains("Amodini Rana DC") && nameList.contains("Lavanya Adiga"));
 
         /* 2. Yol dinamik */
-        String [] expectedData= {"Sujata Chaturvedi", "Navin Panicker", "Bhadran Mehra LLD"};
+        String [] expectedData= {"Rudra Tandon", "Amodini Rana DC", "Lavanya Adiga"};
         int sayac=0;
         for (int i = 0; i <nameList.size() ; i++) {
             for (int j = 0; j <expectedData.length ; j++) {

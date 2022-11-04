@@ -49,6 +49,8 @@ public class Post01 extends JsonplaceholderBaseUrl {
 
         // Do Assertion
         Map<String ,Object> actualData=response.as(HashMap.class);
+        System.out.println(expectedData);
+        System.out.println(actualData);
         assertEquals(expectedData.get("completed"),actualData.get("completed"));
         assertEquals(expectedData.get("title"),actualData.get("title"));
         assertEquals(expectedData.get("userId"),actualData.get("userId"));
