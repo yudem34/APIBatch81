@@ -1,6 +1,6 @@
 package get_request;
 
-import base_url.JsonplaceholderBaseUrl;
+import base_url.JsonPlaceholderBaseUrl;
 import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
@@ -12,7 +12,7 @@ import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.assertEquals;
 
-public class Get04 extends JsonplaceholderBaseUrl {
+public class Get04 extends JsonPlaceholderBaseUrl {
     /*
     Given
            https://jsonplaceholder.typicode.com/todos

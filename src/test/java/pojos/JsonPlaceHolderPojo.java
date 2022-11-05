@@ -4,6 +4,11 @@ import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class JsonPlaceHolderPojo {
 
+    /*
+    @JsonIgnoreProperties
+    JSON verisinde gözükmesi istenmeyen anahtarlar belirtilir.
+    */
+
     private Integer userId;
     private String title;
     private Boolean completed;

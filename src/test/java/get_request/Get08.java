@@ -1,21 +1,18 @@
 package get_request;
 
-import base_url.JsonplaceholderBaseUrl;
-import io.restassured.path.json.JsonPath;
+import base_url.JsonPlaceholderBaseUrl;
 import io.restassured.response.Response;
 import org.junit.Test;
-import org.testng.asserts.SoftAssert;
 import test_data.JsonPlaceHolderTestData;
 
 import java.util.HashMap;
-import java.util.LinkedHashMap;
 import java.util.Map;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.hasSize;
 import static org.junit.Assert.assertEquals;
 
-public class Get08 extends JsonplaceholderBaseUrl {
+public class Get08 extends JsonPlaceholderBaseUrl {
     /*
     Given
        https://jsonplaceholder.typicode.com/todos/2

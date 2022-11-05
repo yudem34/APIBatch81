@@ -1,16 +1,15 @@
 package post_request;
 
-import base_url.JsonplaceholderBaseUrl;
+import base_url.JsonPlaceholderBaseUrl;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
-import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 import org.junit.Test;
 import pojos.JsonPlaceHolderPojo;
 
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
 
-public class Post03Pojo extends JsonplaceholderBaseUrl {
+public class Post03Pojo extends JsonPlaceholderBaseUrl {
     /*
          Given
             https://jsonplaceholder.typicode.com/todos
@@ -55,5 +54,6 @@ public class Post03Pojo extends JsonplaceholderBaseUrl {
 
         // Kısa Yol
         assertEquals(expectedData.toString(),actualData.toString());
+
     }
 }

@@ -1,6 +1,6 @@
 package patch_request;
 
-import base_url.JsonplaceholderBaseUrl;
+import base_url.JsonPlaceholderBaseUrl;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.junit.Test;
@@ -12,7 +12,7 @@ import java.util.Map;
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.*;
 
-public class Patch01 extends JsonplaceholderBaseUrl {
+public class Patch01 extends JsonPlaceholderBaseUrl {
     /*
     Given
      1) https://jsonplaceholder.typicode.com/todos/198

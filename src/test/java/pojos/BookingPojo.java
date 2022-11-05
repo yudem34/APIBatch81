@@ -1,5 +1,9 @@
 package pojos;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
+import org.junit.Ignore;
+
+
 public class BookingPojo {
 
     // 1-) Tum keyler icin private variable'lar olusturuyoruz
