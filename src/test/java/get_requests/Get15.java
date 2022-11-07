@@ -51,8 +51,8 @@ public class Get15 extends RestfulBaseUrl {
         assertEquals(expectedData.getDepositpaid(), actualData.getDepositpaid());
         assertEquals(expectedData.getAdditionalneeds(), actualData.getAdditionalneeds());
 
-        assertEquals(bookingDatesPojo.getCheckin(), expectedData.getBookingdates().getCheckin());
-        assertEquals(bookingDatesPojo.getCheckout(), expectedData.getBookingdates().getCheckout());
+        assertEquals(bookingDatesPojo.getCheckin(),actualData.getBookingdates().getCheckin());
+        assertEquals(bookingDatesPojo.getCheckout(),actualData.getBookingdates().getCheckout());
 
         // Soft Assertion
 
