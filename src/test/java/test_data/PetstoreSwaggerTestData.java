@@ -37,16 +37,10 @@ public class PetstoreSwaggerTestData {
         return expectedDataMap;
     }
 
-    public Map<String, Object> expectedDataMapDelete(Integer code, String type, String message) {
+    public Map<String, Object> expectedDataMapDelete(String message) {
 
         Map<String, Object> expectedDataMapDelete = new HashMap<>();
 
-        if (code != null) {
-            expectedDataMapDelete.put("code", code);
-        }
-        if (type != null) {
-            expectedDataMapDelete.put("type", type);
-        }
         if (message != null) {
             expectedDataMapDelete.put("message", message);
         }

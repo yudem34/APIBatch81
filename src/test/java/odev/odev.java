@@ -1,4 +1,4 @@
-package Practice;//Alıştırmalar:
+package odev;//Alıştırmalar:
 
 //1:
  /*
