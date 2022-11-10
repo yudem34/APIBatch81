@@ -5,14 +5,11 @@ import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.junit.Test;
 import test_data.PetstoreSwaggerTestData;
-
 import java.util.HashMap;
 import java.util.Map;
-
-
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+
 
 public class Soru5_Tek_Test extends PetstoreSwaggerBaseUrl {
 
@@ -26,7 +23,7 @@ public class Soru5_Tek_Test extends PetstoreSwaggerBaseUrl {
     public void postUser() {
 
         // Set the Url
-        spec.pathParam("1", "user");
+        spec.pathParam("first", "user");
 
         // Set the expected Data
         Map<String, Object> expectedData = obj.expectedDataMap(2929, "yudem2929", "yusuf", "demir",
@@ -35,12 +32,12 @@ public class Soru5_Tek_Test extends PetstoreSwaggerBaseUrl {
         System.out.println("expectedData = " + expectedData);
 
         // Send the Request and post the response
-        Response response = given().spec(spec).contentType(ContentType.JSON).body(expectedData).when().post("/{1}");
+        Response response = given().spec(spec).contentType(ContentType.JSON).body(expectedData).when().post("/{first}");
         response.prettyPrint();
 
         // Send the Request and get the response
-        spec.pathParams("1", "user", "second", expectedData.get("username"));
-        response = given().spec(spec).contentType(ContentType.JSON).when().get("/{1}/{second}");
+        spec.pathParams("first", "user", "second", expectedData.get("username"));
+        response = given().spec(spec).contentType(ContentType.JSON).when().get("/{first}/{second}");
         // response.prettyPrint();
 
         // Do Assertion
@@ -75,7 +72,6 @@ public class Soru5_Tek_Test extends PetstoreSwaggerBaseUrl {
         HashMap actualData = response.as(HashMap.class);
         System.out.println("expectedData = " + expectedData);
         System.out.println("actualData = " + actualData);
-
         assertEquals(expectedData.get("message"), actualData.get("message"));
 
     }
